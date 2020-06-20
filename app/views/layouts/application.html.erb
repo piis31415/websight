@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Lex</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+</head>
+<body>
+<!--Navigation Bar-->
+<nav class="navbar navbar-light bg-light d-flex">
+  <div class="container">
+    <div class="logo">
+      <a class="navbar-brand" href="/">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-inverse fa-gavel fa-stack-1x"></i>
+            </span>
+        Lex
+      </a>
+    </div>
+    <div class="user-section">
+      <% if user_signed_in? %>
+        <a><i class="fa fa-plus"></i></a>
+      <% end %>
+      <a><i class="fa fa-compass"></i></a>
+      <a><i class="fa fa-heart"></i></a>
+      <% if user_signed_in? %>
+        <a href="<%= edit_user_registration_path%>">
+          <i class="fa fa-user"></i>
+        </a>
+      <% else %>
+        <a href="<%= new_user_session_path%>">
+          <i class="fa fa-sign-in"></i>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<!--Main content-->
+<main class="container" style="min-height: 500px;">
+  <%= yield %>
+</main>
+
+<!--Footer-->
+<footer class="container footer">
+  <nav class="navbar d-flex">
+    <ul>
+      <li>PLACEHOLDER FOOTER </li>
+    </ul>
+  </nav>
+</footer>
+</body>
+</html>

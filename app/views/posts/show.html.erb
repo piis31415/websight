@@ -1,0 +1,16 @@
+<div class="post-show">
+  <div class="title">
+    <%= @post.title %>
+  </div>
+  <div class="content">
+    <%= @post.contents %>
+  </div>
+  <div class="delete">
+    <% if current_user.posts.exists?(@post.id) %>
+      <%= button_to 'Remove', post_path(@post),
+                    method: :delete,
+                    confirm: 'Are you sure?' %>
+    <% end %>
+  </div>
+  <%= commontator_thread(@post) %>
+</div>
